@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>QA Interview Questions - 6 Years Experience</title>
+  <title>InterviewWise - QA Interview Questions</title>
   <style>
     :root {
-      --bg: #f9fafb;
-      --text: #1f2937;
-      --primary: #6366f1;
-      --header-bg: #4f46e5;
+      --bg: #fdfcfb;
+      --text: #2d3748;
+      --primary: #0ea5e9;
+      --header-bg: #0c4a6e;
       --section-bg: #ffffff;
-      --button-bg: #6366f1;
+      --button-bg: #0ea5e9;
       --button-text: #ffffff;
     }
 
     body.dark-mode {
-      --bg: #1e1e2f;
+      --bg: #111827;
       --text: #e5e7eb;
-      --primary: #a78bfa;
-      --header-bg: #2e2e48;
-      --section-bg: #2a2a40;
-      --button-bg: #a78bfa;
-      --button-text: #1e1e2f;
+      --primary: #38bdf8;
+      --header-bg: #1e293b;
+      --section-bg: #1f2937;
+      --button-bg: #38bdf8;
+      --button-text: #111827;
     }
 
     * { box-sizing: border-box; }
@@ -33,14 +33,8 @@
       line-height: 1.6;
       background: var(--bg);
       color: var(--text);
-      padding-top: 60px;
+      padding-top: 70px;
       transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 2rem;
-      color: var(--primary);
     }
 
     header {
@@ -57,9 +51,16 @@
     }
 
     header h1 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       margin: 0;
-      font-size: 1.25rem;
+      font-size: 1.5rem;
       color: white;
+    }
+
+    header h1 img {
+      height: 30px;
     }
 
     nav a {
@@ -85,9 +86,25 @@
       transition: background 0.3s, color 0.3s;
     }
 
+    .search-box {
+      max-width: 1000px;
+      margin: 20px auto 0;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .search-box input {
+      padding: 10px;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
     section {
       max-width: 1000px;
-      margin: 30px auto;
+      margin: 20px auto;
       padding: 24px;
       background: var(--section-bg);
       border-radius: 12px;
@@ -103,12 +120,18 @@
       padding-bottom: 4px;
     }
 
-    ol {
-      padding-left: 20px;
+    details {
+      margin-bottom: 12px;
+      border: 1px solid var(--primary);
+      border-radius: 6px;
+      padding: 10px 14px;
+      background-color: rgba(14, 165, 233, 0.05);
     }
 
-    li {
-      margin-bottom: 16px;
+    summary {
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
     }
 
     pre {
@@ -144,7 +167,6 @@
     @media (max-width: 600px) {
       body { padding: 10px; padding-top: 70px; }
       section { padding: 16px; }
-      h1 { font-size: 1.5rem; }
       h2 { font-size: 1.2rem; }
       header { flex-direction: column; align-items: flex-start; gap: 10px; }
     }
@@ -152,35 +174,79 @@
 </head>
 <body>
   <header>
-    <h1>QA Interview Questions</h1>
+    <h1><img src="https://img.icons8.com/fluency/48/brain.png" alt="Logo"> InterviewWise</h1>
     <nav>
       <a href="#testng">TestNG</a>
       <a href="#selenium">Selenium</a>
+      <a href="#api">API</a>
+      <a href="#manual">Manual</a>
       <a href="#downloads">Download</a>
     </nav>
     <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
   </header>
 
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search questions...">
+  </div>
+
   <section id="testng">
     <h2>TestNG Interview Questions and Answers</h2>
-    <p><strong>Note:</strong> This section will include TestNG content from the previously created document. (Add it here manually or on request)</p>
+    <details><summary>What is TestNG?</summary><p>TestNG is a testing framework inspired by JUnit and NUnit but with additional features like test configuration, parallel execution, and data-driven testing.</p></details>
+    <details><summary>How do you prioritize test cases in TestNG?</summary><p>Use the <code>priority</code> attribute in <code>@Test</code> annotation. Lower values run first.</p></details>
+    <details><summary>What is the difference between @BeforeMethod and @BeforeClass?</summary><p>@BeforeMethod runs before each test method. @BeforeClass runs once before any methods in the class.</p></details>
+    <details><summary>What is DataProvider in TestNG?</summary><p>A feature used to pass multiple sets of data to a single test method.</p></details>
+    <details><summary>How do you skip a test in TestNG?</summary><p>Set <code>enabled = false</code> in the <code>@Test</code> annotation or throw <code>SkipException</code>.</p></details>
   </section>
 
   <section id="selenium">
     <h2>Selenium WebDriver with Java Interview Questions and Answers</h2>
-    <!-- same questions content here -->
+    <details><summary>What is Selenium WebDriver?</summary><p>Selenium WebDriver is an open-source tool used for automating web application testing.</p></details>
+    <details><summary>What are the different types of locators in Selenium?</summary><p>id, name, className, tagName, linkText, partialLinkText, cssSelector, xpath</p></details>
+    <details><summary>Difference between findElement and findElements?</summary><p><strong>findElement:</strong> Returns a single WebElement.<br><strong>findElements:</strong> Returns a list of WebElements.</p></details>
+    <details><summary>How do you handle dropdowns in Selenium?</summary><pre><code>Select select = new Select(driver.findElement(By.id(\"dropdown\")));\nselect.selectByVisibleText(\"Option1\");</code></pre></details>
+    <details><summary>How do you handle alerts in Selenium?</summary><pre><code>Alert alert = driver.switchTo().alert();\nalert.accept();</code></pre></details>
+  </section>
+
+  <section id="api">
+    <h2>API Testing Interview Questions and Answers</h2>
+    <details><summary>What is API Testing?</summary><p>API Testing involves testing APIs to check their functionality, reliability, and security.</p></details>
+    <details><summary>What tools are used for API Testing?</summary><p>Postman, REST Assured, SoapUI, JMeter, Karate.</p></details>
+    <details><summary>Difference between PUT and POST?</summary><p>POST is for creating resources, PUT is for updating.</p></details>
+    <details><summary>What are common status codes?</summary><p>200 OK, 201 Created, 400 Bad Request, 401 Unauthorized, 404 Not Found, 500 Server Error</p></details>
+    <details><summary>How do you test REST APIs?</summary><p>Using GET, POST, PUT, DELETE requests and validating responses.</p></details>
+  </section>
+
+  <section id="manual">
+    <h2>Manual Testing Interview Questions and Answers</h2>
+    <details><summary>What is Manual Testing?</summary><p>Manual Testing is testing without automation tools.</p></details>
+    <details><summary>Difference between Verification and Validation?</summary><p>Verification ensures the product is built correctly, validation checks if the right product is built.</p></details>
+    <details><summary>Levels of testing?</summary><p>Unit, Integration, System, Acceptance</p></details>
+    <details><summary>What is a test case?</summary><p>A test case is a documented set of steps to verify functionality.</p></details>
+    <details><summary>What is a bug life cycle?</summary><p>New → Assigned → Open → Fixed → Retest → Verified → Closed</p></details>
   </section>
 
   <section class="download-section" id="downloads">
     <h2>Download Interview Questions Documents</h2>
-    <a href="TestNG_Interview_QA_6yrs.docx" download>Download TestNG Questions (DOCX)</a>
-    <a href="Selenium_WebDriver_Java_QA_6yrs.docx" download>Download Selenium Questions (DOCX)</a>
+    <a href="TestNG_Interview_QA_6yrs.docx" download>Download TestNG Questions</a>
+    <a href="Selenium_WebDriver_Java_QA_6yrs.docx" download>Download Selenium Questions</a>
   </section>
 
   <script>
     function toggleTheme() {
       document.body.classList.toggle('dark-mode');
     }
+
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', function () {
+      const query = this.value.toLowerCase();
+      const detailsElements = document.querySelectorAll('details');
+      detailsElements.forEach(detail => {
+        const question = detail.querySelector('summary').textContent.toLowerCase();
+        const answer = detail.querySelector('p, pre')?.textContent.toLowerCase() || '';
+        const match = question.includes(query) || answer.includes(query);
+        detail.style.display = match ? '' : 'none';
+      });
+    });
   </script>
 </body>
 </html>
